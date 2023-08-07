@@ -1,0 +1,24 @@
+<!-- data binding -->
+<!-- interpolation => access from component class in component html-->
+<!-- {{}} -->
+
+<!-- <h2>{{title}}</h2>
+<h1>{{num}}</h1> -->
+
+<p>For Test model class</p>
+<h3>{{track.trackName}}</h3>
+<img src="{{track.trackImage}}" width="300" >
+
+<!-- <h2>{{track.trackCourses[2]}}</h2> -->
+<!-- for of -->
+<!-- <ul>
+  <li>{{track.trackCourses[0]}}</li>
+  <li>{{track.trackCourses[1]}}</li>
+  <li>{{track.trackCourses[2]}}</li>
+</ul> -->
+
+<!-- *ngFor => for of -->
+<ul>
+  <li *ngFor="let item of track.trackCourses">{{item}}</li>
+
+</ul>
