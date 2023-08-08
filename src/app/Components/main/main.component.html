@@ -7,7 +7,9 @@
 
 <p>For Test model class</p>
 <h3>{{track.trackName}}</h3>
-<img src="{{track.trackImage}}" width="300" >
+<!-- <img src="{{track.trackImage}}" width="300" > -->
+<!-- property binding -->
+<img [src]="track.trackImage" width="300">
 
 <!-- <h2>{{track.trackCourses[2]}}</h2> -->
 <!-- for of -->
@@ -22,3 +24,9 @@
   <li *ngFor="let item of track.trackCourses">{{item}}</li>
 
 </ul>
+
+
+<p>For Test model interface</p>
+<h1>{{trackInterface.trackName}}</h1>
+<h2>{{trackInterface.trackNum}}</h2>
+<h3 *ngFor="let course of trackInterface.courses">{{course}}</h3>
