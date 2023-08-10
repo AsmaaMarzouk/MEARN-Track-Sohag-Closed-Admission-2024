@@ -32,6 +32,13 @@ set listFilter(value:string) {
 
 }
 // tables: 1 ,chairs: 2 , tv units: 3
+
+
+// Day3
+date1:Date = new Date();
+// date2:string = new Date().toDateString();
+
+// #########################
 constructor(){
 
 

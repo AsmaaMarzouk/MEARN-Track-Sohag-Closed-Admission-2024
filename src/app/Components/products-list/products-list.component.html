@@ -1,3 +1,8 @@
+<!-- Day3 -->
+<!-- date pipe -->
+<!-- <h2>{{date1|date:'shortDate'}}</h2> -->
+<h2>{{date1|date:'fullDate'}}</h2>
+<!-- ###################### -->
 <!-- event binding -->
 <button class="btn btn-primary" (click)="toggleImage()">Image</button>
 <!-- ##################### -->
@@ -9,10 +14,10 @@
     <!-- <input type="text" class="form-control" [(ngModel)]="user"> -->
     <input type="text" class="form-control" [(ngModel)]="listFilter">
   </div>
-<div class="col-md-12">
-  <!-- <h3>Filter Value: {{user}} </h3> -->
-  <h3>Filter Value: {{listFilter}} </h3>
-</div>
+  <div class="col-md-12">
+    <!-- <h3>Filter Value: {{user}} </h3> -->
+    <h3>Filter Value: {{listFilter}} </h3>
+  </div>
 </div>
 <!-- ##################### -->
 <div class="row">
@@ -25,13 +30,50 @@
   <!-- <div class="col-sm-4 mb-3" *ngFor="let item of productsList" [style.color]="(item.price>10000)?'red':'blue'" [style.background-color]="(item.price>10000)&&'lightgray'"> -->
   <!-- <div class="col-sm-4 mb-3" *ngFor="let item of productsList" [style.color]="(item.price>10000)?'red':'blue'" [style.background-color]="(item.price>10000)?'lightgray':'white'"> -->
   <!-- <div class="col-sm-4 mb-3" *ngFor="let item of productsList"> -->
-    <div class="col-sm-4 mb-3" *ngFor="let item of filteredProducts">
-    <img [src]="item.PrdImgURL" class="img-fluid" *ngIf="showImage">
 
-    <h4>{{item.name}}</h4>
-    <h5>{{item.price}}</h5>
-    <button class="btn btn-danger" [disabled]="item.quantity==0">Add To Cart<i
-        class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button>
-    <!-- <button class="btn btn-danger" [disabled]="!item.quantity">Add To Cart<i class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button> -->
-  </div>
+  <!-- Day3 -->
+  <!-- virtual containers => ng-container && ng-template && ng-content -->
+  <ng-container *ngFor="let item of filteredProducts">
+    <!-- <div class="col-sm-4" *ngIf="item.price>10000"> -->
+    <div class="col-sm-4 mb-3">
+      <!-- <div class="col-sm-4 mb-3" *ngFor="let item of filteredProducts" *ngIf="item.price>10000">error -->
+      <!-- <div class="col-sm-4 mb-3" *ngFor="let item of filteredProducts" [ngClass]="{'text-warning':item.price>20000,'bg-danger':item.price<10000}"> -->
+      <!-- <div class="col-sm-4 mb-3" *ngFor="let item of filteredProducts" [ngStyle]="{'color':(item.price>20000)?'red':'blue','background-color':(item.price<20000)?'lightgray':'lightblue'}"> -->
+      <!-- <img [src]="item.PrdImgURL" class="img-fluid" *ngIf="showImage" ImgStyle radius1="80px"> -->
+      <img [src]="item.PrdImgURL" class="img-fluid" *ngIf="showImage" ImgStyle="5px" radius1="40px">
+
+      <h4>{{item.name|uppercase}}</h4>
+      <!-- <h4>{{item.name|lowercase}}</h4> -->
+      <!-- <h5>{{item.price|currency:'EUR':'symbol'}}</h5> -->
+      <!-- <h5>{{item.price|currency:'EUR':'code'}}</h5> -->
+      <!-- <h5>{{item.price|currency:'USD':'symbol'}}</h5> -->
+
+      <div>
+        <h5 class="text-decoration-line-through">{{item.price|currency}}</h5>
+        <h5>{{item.price|calcDiscount:70|currency}}</h5>
+
+      </div>
+      <div>
+        <!-- item.categoryID==1 -->
+        <ng-container [ngSwitch]="item.categoryID">
+          <ng-container *ngSwitchCase="1">Table</ng-container>
+          <ng-container *ngSwitchCase="2">Chair</ng-container>
+          <ng-container *ngSwitchCase="3">TV Unit</ng-container>
+        </ng-container>
+      </div>
+      <!-- <input type="text" #test> <button (click)="func(test.value)"></button> -->
+      <div>
+        <ng-container *ngIf="item.quantity>0;else outOfStockTemplate">In Stock</ng-container>
+
+        <!-- template reference => #name -->
+        <!-- <ng-template #outOfStockTemplate><p style="color:red;">Out of Stock</p> </ng-template> -->
+        <ng-template #outOfStockTemplate>
+          <p style="color:red;">Out of Stock</p>
+        </ng-template>
+      </div>
+      <button class="btn btn-danger" [disabled]="item.quantity==0">Add To Cart<i
+          class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button>
+      <!-- <button class="btn btn-danger" [disabled]="!item.quantity">Add To Cart<i class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button> -->
+    </div>
+  </ng-container>
 </div>
