@@ -7,18 +7,19 @@
 <button class="btn btn-primary" (click)="toggleImage()">Image</button>
 <!-- ##################### -->
 <!-- two way binding -->
-<div class="row">
+<!-- comment in Day4 -->
+<!-- <div class="row">
   <div class="col-md-2">Filter by:</div>
-  <div class="col-md-10">
-    <!-- <input type="text" class="form-control" [value]="user"> -->
-    <!-- <input type="text" class="form-control" [(ngModel)]="user"> -->
-    <input type="text" class="form-control" [(ngModel)]="listFilter">
+  <div class="col-md-10"> -->
+<!-- <input type="text" class="form-control" [value]="user"> -->
+<!-- <input type="text" class="form-control" [(ngModel)]="user"> -->
+<!-- <input type="text" class="form-control" [(ngModel)]="listFilter">
+  </div> -->
+<!-- <div class="col-md-12"> -->
+<!-- <h3>Filter Value: {{user}} </h3> -->
+<!-- <h3>Filter Value: {{listFilter}} </h3>
   </div>
-  <div class="col-md-12">
-    <!-- <h3>Filter Value: {{user}} </h3> -->
-    <h3>Filter Value: {{listFilter}} </h3>
-  </div>
-</div>
+</div> -->
 <!-- ##################### -->
 <div class="row">
 
@@ -35,12 +36,17 @@
   <!-- virtual containers => ng-container && ng-template && ng-content -->
   <ng-container *ngFor="let item of filteredProducts">
     <!-- <div class="col-sm-4" *ngIf="item.price>10000"> -->
-    <div class="col-sm-4 mb-3">
+
+    <!-- Day5 -->
+    <div class="col-sm-4 mb-3" (click)="prdDetails(item.id)">
+      <!-- or -->
+      <!-- <div class="col-sm-4 mb-3" [routerLink]="['/prdDetails',item.id]"> -->
+      <!-- #################### -->
       <!-- <div class="col-sm-4 mb-3" *ngFor="let item of filteredProducts" *ngIf="item.price>10000">error -->
       <!-- <div class="col-sm-4 mb-3" *ngFor="let item of filteredProducts" [ngClass]="{'text-warning':item.price>20000,'bg-danger':item.price<10000}"> -->
       <!-- <div class="col-sm-4 mb-3" *ngFor="let item of filteredProducts" [ngStyle]="{'color':(item.price>20000)?'red':'blue','background-color':(item.price<20000)?'lightgray':'lightblue'}"> -->
       <!-- <img [src]="item.PrdImgURL" class="img-fluid" *ngIf="showImage" ImgStyle radius1="80px"> -->
-      <img [src]="item.PrdImgURL" class="img-fluid" *ngIf="showImage" ImgStyle="5px" radius1="40px">
+      <img [src]="item.PrdImgURL" class="img-fluid" *ngIf="showImage" ImgStyle="8px" radius1="12px">
 
       <h4>{{item.name|uppercase}}</h4>
       <!-- <h4>{{item.name|lowercase}}</h4> -->
@@ -71,7 +77,7 @@
           <p style="color:red;">Out of Stock</p>
         </ng-template>
       </div>
-      <button class="btn btn-danger" [disabled]="item.quantity==0">Add To Cart<i
+      <button class="btn btn-danger" [disabled]="item.quantity==0" (click)="addToCart(item)">Add To Cart<i
           class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button>
       <!-- <button class="btn btn-danger" [disabled]="!item.quantity">Add To Cart<i class="fa-sharp fa-solid fa-cart-plus modifyIcon"></i></button> -->
     </div>

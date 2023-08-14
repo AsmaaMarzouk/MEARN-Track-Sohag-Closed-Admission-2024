@@ -10,6 +10,11 @@ import { ProductsListComponent } from './Components/products-list/products-list.
 import { FormsModule } from '@angular/forms';
 import { ImgStyleDirective } from './Directives/img-style.directive';
 import { CalcDiscountPipe } from './Pipes/calc-discount.pipe';
+import { ProductsParentComponent } from './Components/products-parent/products-parent.component';
+import { AboutusComponent } from './Components/aboutus/aboutus.component';
+import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { GroupOfRoutesComponent } from './Components/group-of-routes/group-of-routes.component';
 
 
 // class decorator
@@ -21,7 +26,12 @@ import { CalcDiscountPipe } from './Pipes/calc-discount.pipe';
     FooterComponent,
     ProductsListComponent,
     ImgStyleDirective,
-    CalcDiscountPipe
+    CalcDiscountPipe,
+    ProductsParentComponent,
+    AboutusComponent,
+    NotFoundPageComponent,
+    ProductDetailsComponent,
+    GroupOfRoutesComponent
   ],
   imports: [
     BrowserModule,
