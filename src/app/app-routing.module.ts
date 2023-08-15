@@ -7,6 +7,7 @@ import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { GroupOfRoutesComponent } from './Components/group-of-routes/group-of-routes.component';
+import { UserTemplateFormComponent } from './Components/user/user-template-form/user-template-form.component';
 // basics of routes
 // first match wins
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'ProductsParent',component:ProductsParentComponent,title:"Products Parent"},
   {path:'prdDetails/:pId',component:ProductDetailsComponent,title:"Products Details"},
   {path:'AboutUs',component:AboutusComponent,title:"About Us page"},
+  {path:'userTemplate',component:UserTemplateFormComponent,title:"User Template page"},
   {path:'**',component:NotFoundPageComponent,title:"Not Found Page"},//wild card path => not found page
 ];
 

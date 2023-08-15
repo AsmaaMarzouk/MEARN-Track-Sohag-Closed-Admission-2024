@@ -1,0 +1,61 @@
+<!-- <button class="btn btn-primary" (click)="addUser()">Add</button> -->
+
+<!-- form -->
+
+
+<div class="card mb-3">
+  <div class="card-header">
+    Sign Up with template
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="addUser()">
+      <div class="form-group row mb-2">
+        <label for="firstName" class="col-md-2 col-form-label">First Name</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name (required)" required
+            minlength="3" [(ngModel)]="user.firstName">
+
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="lastNameId">Last Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="lastNameId"
+                 type="text"
+                 placeholder="Last Name (required)"
+                 required
+                 pattern="[A-Za-z]{5,}"
+                 name="lastName"
+                 [(ngModel)]="user.lastName"
+                />
+
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="emailId">Email</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="emailId"
+                 type="email"
+                 name="email"
+                 placeholder="Email (required)"
+                 required
+                 email
+                 [(ngModel)]="user.email"
+                 />
+
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+  </div>
+</div>
+
+
+

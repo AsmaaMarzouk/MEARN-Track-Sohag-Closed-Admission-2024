@@ -15,7 +15,8 @@ import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { NotFoundPageComponent } from './Components/not-found-page/not-found-page.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { GroupOfRoutesComponent } from './Components/group-of-routes/group-of-routes.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { UserTemplateFormComponent } from './Components/user/user-template-form/user-template-form.component';
 
 // class decorator
 @NgModule({
@@ -31,12 +32,14 @@ import { GroupOfRoutesComponent } from './Components/group-of-routes/group-of-ro
     AboutusComponent,
     NotFoundPageComponent,
     ProductDetailsComponent,
-    GroupOfRoutesComponent
+    GroupOfRoutesComponent,
+    UserTemplateFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
