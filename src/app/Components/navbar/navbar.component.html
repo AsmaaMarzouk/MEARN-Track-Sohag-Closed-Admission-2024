@@ -18,6 +18,11 @@
           <li class="nav-tab"><a class="link" routerLink="/ProductsParent" routerLinkActive="test">Products Parent</a></li>
           <li class="nav-tab"><a class="link" routerLink="/AboutUs" routerLinkActive="test">About Us</a></li>
           <li class="nav-tab"><a class="link" routerLink="/userTemplate" routerLinkActive="test">User Template</a></li>
+          <li class="nav-tab"><a class="link" routerLink="/userReactive" routerLinkActive="test">User Reactive</a></li>
+          <li class="nav-tab"><a class="link" routerLink="/Login" routerLinkActive="test" [hidden]="isUserLogged">User Login</a></li>
+          <li class="nav-tab"><a class="link" routerLink="/Logout" routerLinkActive="test" [hidden]="!isUserLogged">User Logout</a></li>
+          <li class="nav-tab"><a class="link" routerLink="/Order/Cart" routerLinkActive="test">User Cart</a></li>
+          <li class="nav-tab"><a class="link" routerLink="/Order/Wishlist" routerLinkActive="test">User Wishlist</a></li>
         </ul>
       </div>
     </nav>
